@@ -8,12 +8,15 @@ const App = () => {
   useEffect(() => {
     fetch(api)
       .then((res) => res.json())
-      .then((d) => useData(d));
+      .then((d) => useData(d))
+      .catch((e) => e);
   }, []);
 
   return (
     <div>
-      <pre>{data && JSON.stringify(data)}</pre>
+      <h1>
+        <pre>{data && JSON.stringify(data)}</pre>
+      </h1>
     </div>
   );
 };
